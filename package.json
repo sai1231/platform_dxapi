@@ -1,6 +1,6 @@
 {
   "name": "PegaApp",
-  "homepage": "https://e2eplatform84-dev.pegatsdemo.com/dxapi/",
+  "homepage": "/dx",
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
