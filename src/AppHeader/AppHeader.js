@@ -14,26 +14,11 @@ class AppHeader extends Component {
         )}
         <Menu.Item name="app" as={Link} to="/">
           <Icon name="home" size="large" />
-          AR Bank
+          U+ Bank
         </Menu.Item>
-        {this.props.loggedIn && (
-          <Menu.Item 
-          name='Loans'
-          as={Link} to="/">
-          </Menu.Item>
-        )}
-        {this.props.loggedIn && (
-          <Menu.Item 
-          name='Credit'
-          as={Link} to="/">
-          </Menu.Item>
-        )}
-        {this.props.loggedIn && (
-          <Menu.Item 
-          name='Debit'
-          as={Link} to="/">
-          </Menu.Item>
-        )}
+        {this.props.loggedIn && <Menu.Item name="Loans" as={Link} to="/" />}
+        {this.props.loggedIn && <Menu.Item name="Credit" as={Link} to="/" />}
+        {this.props.loggedIn && <Menu.Item name="Debit" as={Link} to="/" />}
         <Menu.Menu position="right">
           {!this.props.loggedIn && (
             <Menu.Item

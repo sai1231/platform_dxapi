@@ -97,7 +97,7 @@ function getFieldsForAssignment(assignment, actionId = null) {
     dispatch(request(assignment, actionId));
 
     // Get view for case -- pyCaseDetails section to display alongside WorkObject.
-    dispatch(caseActions.getView(assignment.caseID, "pyCaseDetails"));
+    // dispatch(caseActions.getView(assignment.caseID, "pyCaseDetails"));
 
     return assignmentService.getFieldsForAssignment(assignment, actionId).then(
       data => {
@@ -217,7 +217,7 @@ function performActionOnAssignment(caseID, assignmentID, actionID, body) {
           } else {
             // Get view for case -- pyCaseDetails section to display alongside WorkObject.
             // We want to display this with confirm harness, but not New harness.
-            dispatch(caseActions.getView(caseID, "pyCaseDetails"));
+            // dispatch(caseActions.getView(caseID, "pyCaseDetails"));
             // Get case info again, so that we can put status onto Confirm harness
             dispatch(caseActions.getCase(caseID));
             // Get harness for confirm

@@ -299,6 +299,7 @@ class ReferenceHelper {
   static processField(field, state) {
     if (field.visible) {
       state[field.reference] = field.value;
+      state["Channel"] = "DX";
     }
   }
 }

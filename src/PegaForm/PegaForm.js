@@ -106,33 +106,39 @@ class PegaForm extends Component {
    */
   getForm() {
     return (
-      <Form onSubmit={() => this.handleSubmit()} loading={this.props.loading}>
-        <Segment className="noborder">
-          <Header as="h2" textAlign="left">
-          {this.props.header}
-          </Header>
-       </Segment>
-        <Segment className="noborder">
-          <Container>
-          {this.props.view && this.createView(this.props.view)}
-          </Container>
-        </Segment>
-        <Segment className="noborder" style={{ overflow: "hidden" }}>
-          <Button.Group floated="left">
-            <Button className="btnstandard" onClick={(e, data) => this.handleCancel(e, data)}>
-              Cancel
-            </Button>
-          </Button.Group>
-          <Button.Group floated="right">
-            <Button className="btnsolid" onClick={(e, data) => this.handleSave(e, data)}>
-              Save
-            </Button>
-            <Button className="btnsolid" type="submit" primary>
-              Submit
-            </Button>
-          </Button.Group>
-        </Segment>
-      </Form>
+      <Container>
+        <Form onSubmit={() => this.handleSubmit()} loading={this.props.loading}>
+          <Segment className="noborder">
+            <Header as="h2" textAlign="left">
+              {this.props.header}
+            </Header>
+          </Segment>
+          <Segment className="noborder">
+            {this.props.view && this.createView(this.props.view)}
+          </Segment>
+          <Segment className="noborder" style={{ overflow: "hidden" }}>
+            <Button.Group floated="left">
+              <Button
+                className="btnstandard"
+                onClick={(e, data) => this.handleCancel(e, data)}
+              >
+                Cancel
+              </Button>
+            </Button.Group>
+            <Button.Group floated="right">
+              <Button
+                className="btnsolid"
+                onClick={(e, data) => this.handleSave(e, data)}
+              >
+                Save
+              </Button>
+              <Button className="btnsolid" type="submit" primary>
+                Submit
+              </Button>
+            </Button.Group>
+          </Segment>
+        </Form>
+      </Container>
     );
   }
 
@@ -145,28 +151,37 @@ class PegaForm extends Component {
     const isConfirm = this.props.page.name === pageNames.CONFIRM;
 
     return (
-      <Form onSubmit={isNew ? () => this.handleCaseCreate() : null}>
-        <Segment attached="top">
+      <Container>
+        <Form onSubmit={isNew ? () => this.handleCaseCreate() : null}>
+          {/* <Segment attached="top">
           <Header as="h2" textAlign="center">
-            {this.props.page.name}
+            {isConfirm && "Confirmation"}
             {isConfirm && (
               <Header.Subheader>
-                Status: {this.props.caseStatus}
+                {this.props.caseStatus}
               </Header.Subheader>
             )}
           </Header>
-        </Segment>
-        <Segment attached={isNew ? true : "bottom"}>
-          {this.props.page && this.createView(this.props.page)}
-        </Segment>
-        {isNew && (
-          <Segment attached="bottom">
-            <Button type="submit" primary>
-              Submit
-            </Button>
+        </Segment> */}
+          <Segment textAlign="center" attached={isNew ? true : "bottom"}>
+            {isConfirm && (
+              <img
+                height="128"
+                src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaWQ9IkxheWVyXzEiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDYxMiA3OTI7IiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCA2MTIgNzkyIiB4bWw6c3BhY2U9InByZXNlcnZlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj48c3R5bGUgdHlwZT0idGV4dC9jc3MiPgoJLnN0MHtmaWxsOiM0MUFENDk7fQo8L3N0eWxlPjxnPjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik01NjIsMzk2YzAtMTQxLjQtMTE0LjYtMjU2LTI1Ni0yNTZTNTAsMjU0LjYsNTAsMzk2czExNC42LDI1NiwyNTYsMjU2UzU2Miw1MzcuNCw1NjIsMzk2TDU2MiwzOTZ6ICAgIE01MDEuNywyOTYuM2wtMjQxLDI0MWwwLDBsLTE3LjIsMTcuMkwxMTAuMyw0MjEuM2w1OC44LTU4LjhsNzQuNSw3NC41bDE5OS40LTE5OS40TDUwMS43LDI5Ni4zTDUwMS43LDI5Ni4zeiIvPjwvZz48L3N2Zz4="
+                width="128"
+              />
+            )}
+            {this.props.page && this.createView(this.props.page)}
           </Segment>
-        )}
-      </Form>
+          {isNew && (
+            <Segment attached="bottom">
+              <Button type="submit" primary>
+                Submit
+              </Button>
+            </Segment>
+          )}
+        </Form>
+      </Container>
     );
   }
 
@@ -230,7 +245,7 @@ class PegaForm extends Component {
       return (
         <div key={index}>
           <Segment className="noborder">
-          {this.createView(group.view, index)}
+            {this.createView(group.view, index)}
           </Segment>
         </div>
       );
@@ -414,7 +429,15 @@ class PegaForm extends Component {
         : layout.header.groups.length;
 
     return (
-      <Table celled sortable striped selectable compact color="blue" key={index}>
+      <Table
+        celled
+        sortable
+        striped
+        selectable
+        compact
+        color="blue"
+        key={index}
+      >
         <Table.Header>
           <Table.Row>
             {layout.header.groups.map((group, childIndex) => {
@@ -455,7 +478,7 @@ class PegaForm extends Component {
                 referencetype={layout.referenceType}
                 loading={this.state.loadingElems[reference]}
               >
-                <Icon name="plus" /> Add Row
+                <Icon name="plus" /> Add row
               </Button>
               <Button
                 icon
@@ -468,7 +491,7 @@ class PegaForm extends Component {
                 referencetype={layout.referenceType}
                 loading={this.state.loadingElems[reference]}
               >
-                <Icon name="minus" /> Delete Row
+                <Icon name="minus" /> Delete row
               </Button>
             </Table.HeaderCell>
           </Table.Row>
@@ -756,8 +779,8 @@ class PegaForm extends Component {
           const displayDate = moment(value, "YYYYMMDD").format("MM/DD/YYYY");
           fieldElem = this.getReadOnlyText(label, displayDate, index);
         } else {
-          console.log(value)
-          const date = value ? moment(value) : null;
+          // console.log(value)
+          const date = value ? moment(value, "YYYY-MM-DDTHH:mm:ssZ") : null;
           fieldElem = (
             <Form.Field
               key={index}
@@ -963,7 +986,7 @@ class PegaForm extends Component {
    */
   getReadOnlyText(label, value, index) {
     return (
-      <div key={index} style={{ padding: "5px", whiteSpace: "pre-wrap"}}>
+      <div key={index} style={{ padding: "5px", whiteSpace: "pre-wrap" }}>
         <label
           style={{ display: "block", fontSize: "1.1rem", fontWeight: 700 }}
         >
@@ -1526,7 +1549,6 @@ class PegaForm extends Component {
     const { assignment } = this.props;
 
     let newValues = Object.assign({}, this.state.values);
-
     this.props
       .dispatch(
         assignmentActions.performActionOnAssignment(
@@ -1611,13 +1633,13 @@ class PegaForm extends Component {
     // This is used for things like the "Confirm" harness.
     // Also show caseView on the right side of the WorkObject.
     return (
-          <Grid>
-            <Grid.Row>
-              <Grid.Column>
-              {this.props.page ? this.getPage() : this.getForm()}
-              </Grid.Column>
-            </Grid.Row>
-          </Grid>
+      <Grid>
+        <Grid.Row>
+          <Grid.Column>
+            {this.props.page ? this.getPage() : this.getForm()}
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
     );
   }
 }
