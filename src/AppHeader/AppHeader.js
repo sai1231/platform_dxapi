@@ -5,6 +5,10 @@ import { Link, withRouter } from "react-router-dom";
 
 class AppHeader extends Component {
   render() {
+    function refreshPage() {
+      window.location.reload(false);
+    }
+
     return (
       <Menu inverted className="primarybg" stackable={false} fixed="top">
         {this.props.loggedIn && (
@@ -12,7 +16,7 @@ class AppHeader extends Component {
             <Icon name="content" />
           </Menu.Item>
         )}
-        <Menu.Item name="app" as={Link} to="/">
+        <Menu.Item name="app" onClick={refreshPage}>
           <Icon name="home" size="large" />
           U+ Bank
         </Menu.Item>
