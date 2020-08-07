@@ -1,35 +1,59 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Container, Header, Segment, Icon, Grid } from "semantic-ui-react";
+import {
+  Container,
+  Header,
+  Segment,
+  Icon,
+  Grid,
+  Button
+} from "semantic-ui-react";
 
 import { Worklist } from "../Worklist/Worklist";
 import { DashboardWidget } from "../DashboardWidget/DashboardWidget";
 
 class Dashboard extends Component {
   render() {
+    console.log("test", this.props);
+
     return (
-      <div>
-        <Grid verticalAlign="middle" columns={2}>
-          <Grid.Row>
-            <Grid.Column width={10}>
-              <Header as="h2" textAlign="left">
-                <Icon name="list alternate" />
-                Worklist
-              </Header>
-            </Grid.Column>
-            <Grid.Column width={6}>
-              {" "}
-              <DashboardWidget type="getNext" floated="right" />{" "}
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
-        <Grid>
-          <Grid.Row>
-            <Grid.Column>
-              <Worklist />
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
+      <div style={{ background: "", height: "850px", margin: "-25px" }}>
+        <Container>
+          <div style={{}}>
+            <Header
+              as="h1"
+              content="Looking for home?"
+              style={{
+                fontSize: "4em",
+                fontWeight: "normal",
+                marginBottom: 0,
+                paddingTop: "3em"
+              }}
+            />
+            <Header
+              as="h2"
+              content="Prequalify for a mortgage today."
+              style={{
+                fontSize: "1.7em",
+                fontWeight: "normal",
+                marginTop: "1.5em"
+              }}
+            />
+            <Header
+              as="h2"
+              content="Apply online with our competitive rates and get support from our experts."
+              style={{
+                fontSize: "1.3em",
+                fontWeight: "normal",
+                marginTop: "1.2em"
+              }}
+            />
+            <Button className="dxapi" size="huge">
+              Prequalify now
+              <Icon name="right arrow" />
+            </Button>
+          </div>
+        </Container>
       </div>
     );
   }

@@ -95,3 +95,8 @@ table thead p {
 .ui.segment.noborder {
   padding: 1em 0em;
 }
+
+.ui.huge.button.dxapi {
+  background-color: #75247e;
+  color: #fff;
+}

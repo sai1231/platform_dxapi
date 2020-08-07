@@ -1,13 +1,7 @@
 import React, { Component } from "react";
-import {Router, Route, BrowserRouter, HashRouter } from "react-router-dom";
+import { Router, Route, BrowserRouter, HashRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import {
-  Container,
-  Message,
-  Sidebar,
-  Menu,
-  Icon
-} from "semantic-ui-react";
+import { Container, Message, Sidebar, Menu, Icon } from "semantic-ui-react";
 import "react-dates/initialize";
 
 import { history } from "../_helpers";
@@ -55,18 +49,20 @@ class PegaApp extends Component {
 
   getMenuItemsForCases() {
     let validCases = [];
-
+    console.log(this.props.caseTypes);
     this.props.caseTypes.forEach(caseType => {
       if (caseType.CanCreate === "true") {
         validCases.push(
           <Menu.Item
             key={caseType.name}
             name={caseType.name}
-            content={caseType.name}
-            onClick={e =>
-              this.createCase(caseType.ID, false)
+            content={
+              caseType.name == "LoanOrigination"
+                ? "Loan Application"
+                : caseType.name
             }
-            style={{fontSize: '14px'}}
+            onClick={e => this.createCase(caseType.ID, false)}
+            style={{ fontSize: "14px" }}
           />
         );
       }
@@ -77,7 +73,13 @@ class PegaApp extends Component {
 
   getMenuItemsForRecents() {
     if (this.state.recentsLoading) {
-      return <Menu.Item name="loading" content="Loading..." style={{fontSize: '14px'}} />;
+      return (
+        <Menu.Item
+          name="loading"
+          content="Loading..."
+          style={{ fontSize: "14px" }}
+        />
+      );
     }
 
     const recents = this.props.user.recents;
@@ -88,7 +90,7 @@ class PegaApp extends Component {
         name={data.caseId}
         content={data.label + " | " + data.id}
         onClick={() => this.openRecent(data.caseID)}
-        style={{fontSize: '14px'}}
+        style={{ fontSize: "14px" }}
       />
     ));
   }
@@ -148,33 +150,29 @@ class PegaApp extends Component {
               visible={this.state.visible}
               width="wide"
               push
-              vertical  
+              vertical
               className="sidebar"
             >
               <Menu.Item name="create">
-                <Menu.Header style={{fontSize: '16px'}}>
+                <Menu.Header style={{ fontSize: "16px" }}>
                   <Icon name="plus" />
                   Create New
                 </Menu.Header>
-                <Menu.Menu>
-            {this.getMenuItemsForCases()}
-          </Menu.Menu>
+                <Menu.Menu>{this.getMenuItemsForCases()}</Menu.Menu>
               </Menu.Item>
-              
+
               <Menu.Item name="recents">
-                <Menu.Header style={{fontSize: '16px'}}>
+                <Menu.Header style={{ fontSize: "16px" }}>
                   <Icon name="history" />
                   Recents
                 </Menu.Header>
-                <Menu.Menu>
-                {this.getMenuItemsForRecents()}
-                </Menu.Menu>
+                <Menu.Menu>{this.getMenuItemsForRecents()}</Menu.Menu>
               </Menu.Item>
-              
             </Sidebar>
             <Sidebar.Pusher
-              dimmed={this.state.visible} 
-              onClick={() => this.closeSidebar()}>
+              dimmed={this.state.visible}
+              onClick={() => this.closeSidebar()}
+            >
               <div className="workarea">
                 <Container className="main">
                   <Route path="/login" component={LoginPage} />
