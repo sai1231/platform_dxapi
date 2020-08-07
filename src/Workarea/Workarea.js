@@ -120,7 +120,7 @@ class Workarea extends Component {
 
   render() {
     return (
-      <div className="">
+      <div className="dashboard-container">
         <Container fluid>
           <Tab
             renderActiveOnly={true}
