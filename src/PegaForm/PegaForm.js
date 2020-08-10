@@ -172,6 +172,17 @@ class PegaForm extends Component {
               />
             )}
             {this.props.page && this.createView(this.props.page)}
+
+            <Button
+              className="dxapi"
+              size="huge"
+              onClick={refreshPage}
+              style={{
+                marginTop: "1em"
+              }}
+            >
+              Home
+            </Button>
           </Segment>
           {isNew && (
             <Segment attached="bottom">
@@ -183,6 +194,10 @@ class PegaForm extends Component {
         </Form>
       </Container>
     );
+
+    function refreshPage() {
+      window.location.reload(false);
+    }
   }
 
   /**

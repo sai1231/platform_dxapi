@@ -8,16 +8,32 @@ import {
   Grid,
   Button
 } from "semantic-ui-react";
-
-import { Worklist } from "../Worklist/Worklist";
+import { Workarea } from "../Workarea/Workarea";
+import background from "../assets/img/homeLoan.jpg";
 import { DashboardWidget } from "../DashboardWidget/DashboardWidget";
+import { caseActions } from "../_actions";
+
+import { store } from "../_helpers";
 
 class Dashboard extends Component {
   render() {
-    console.log("test", this.props);
+    const createCase = () => {
+      store.dispatch(
+        caseActions.createCase("Demo-DigitalX-Work-LoanOrigination")
+      );
+    };
 
     return (
-      <div style={{ background: "", height: "850px", margin: "-25px" }}>
+      <div
+        style={{
+          backgroundImage: "url(" + background + ")",
+          height: "100vh",
+          margin: "-25px",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover"
+        }}
+      >
         <Container>
           <div style={{}}>
             <Header
@@ -43,12 +59,12 @@ class Dashboard extends Component {
               as="h2"
               content="Apply online with our competitive rates and get support from our experts."
               style={{
-                fontSize: "1.3em",
+                fontSize: "1.7em",
                 fontWeight: "normal",
                 marginTop: "1.2em"
               }}
             />
-            <Button className="dxapi" size="huge">
+            <Button className="dxapi" size="huge" onClick={createCase}>
               Prequalify now
               <Icon name="right arrow" />
             </Button>

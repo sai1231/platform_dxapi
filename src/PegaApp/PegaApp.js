@@ -49,7 +49,6 @@ class PegaApp extends Component {
 
   getMenuItemsForCases() {
     let validCases = [];
-    console.log(this.props.caseTypes);
     this.props.caseTypes.forEach(caseType => {
       if (caseType.CanCreate === "true") {
         validCases.push(

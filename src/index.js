@@ -10,11 +10,21 @@ import "./_styles/index.css";
 import "semantic-ui-css/semantic.min.css";
 import "react-dates/lib/css/_datepicker.css";
 
-ReactDOM.render(
-  <Provider store={store}>
-    <PegaApp />
-  </Provider>,
-  document.getElementById("root")
-);
+const render = () => {
+  fancyLog();
+  return ReactDOM.render(
+    <Provider store={store}>
+      <PegaApp />
+    </Provider>,
+    document.getElementById("root")
+  );
+};
 
+render();
+store.subscribe(render);
+
+function fancyLog() {
+  // console.log("%c Rendered with ? ??", "background: purple; color: #fff");
+  // console.log(store.getState());
+}
 registerServiceWorker();
