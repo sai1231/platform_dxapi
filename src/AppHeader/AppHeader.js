@@ -18,7 +18,7 @@ class AppHeader extends Component {
         )}
         <Menu.Item name="app" onClick={refreshPage}>
           <Icon name="home" size="large" />
-          U+ Bank
+          U+ Loans
         </Menu.Item>
         {this.props.loggedIn && <Menu.Item name="Loans" as={Link} to="/" />}
         {this.props.loggedIn && <Menu.Item name="Credit" as={Link} to="/" />}

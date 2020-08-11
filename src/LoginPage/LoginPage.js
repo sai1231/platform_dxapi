@@ -34,11 +34,17 @@ class LoginPage extends Component {
 
   render() {
     return (
-      <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
-       <Grid.Column style={{ maxWidth: 450 }}>
+      <Grid
+        textAlign="center"
+        style={{ height: "100vh" }}
+        verticalAlign="middle"
+      >
+        <Grid.Column style={{ maxWidth: 450 }}>
           <Header color="blue" as="h2" icon>
             <Icon className="primary" name="home" />
-            <Header.Content className="primary">Login with Pega</Header.Content>
+            <Header.Content className="primary">
+              Login to U+ Loans
+            </Header.Content>
           </Header>
           <Form size="large" onSubmit={e => this.handleSubmit(e)}>
             <Form.Field>
