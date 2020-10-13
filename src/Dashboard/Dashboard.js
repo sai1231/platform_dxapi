@@ -38,7 +38,7 @@ class Dashboard extends Component {
           <div style={{}}>
             <Header
               as="h1"
-              content="Looking for home?"
+              content="Looking for a new home?"
               style={{
                 fontSize: "4em",
                 fontWeight: "normal",
@@ -48,7 +48,7 @@ class Dashboard extends Component {
             />
             <Header
               as="h2"
-              content="Prequalify for a mortgage today."
+              content="Pre-qualify for a mortgage today."
               style={{
                 fontSize: "1.7em",
                 fontWeight: "normal",
@@ -57,7 +57,7 @@ class Dashboard extends Component {
             />
             <Header
               as="h2"
-              content="Apply online with our competitive rates and get support from our experts."
+              content="Apply online to take advantage our competitive rates."
               style={{
                 fontSize: "1.7em",
                 fontWeight: "normal",
@@ -65,7 +65,7 @@ class Dashboard extends Component {
               }}
             />
             <Button className="dxapi" size="huge" onClick={createCase}>
-              Prequalify now
+              Pre-qualify now
               <Icon name="right arrow" />
             </Button>
           </div>
