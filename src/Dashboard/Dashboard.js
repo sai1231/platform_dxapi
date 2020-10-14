@@ -57,7 +57,7 @@ class Dashboard extends Component {
             />
             <Header
               as="h2"
-              content="Apply online to take advantage our competitive rates."
+              content="Apply online to take advantage of our competitive rates."
               style={{
                 fontSize: "1.7em",
                 fontWeight: "normal",
