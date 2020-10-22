@@ -102,7 +102,7 @@ table thead p {
 }
 
 .ui.dropdown .menu > .header {
-  text-transform: none;
+  text-transform: none !important;
 }
 
 .no-bottom-margin {
