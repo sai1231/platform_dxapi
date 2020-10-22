@@ -313,7 +313,7 @@ class WorkObject extends Component {
               {!this.props.page && (
                 <Dropdown text="Actions" pointing className="link item">
                   <Dropdown.Menu>
-                    <Dropdown.Header icon="briefcase" content="Local Actions" />
+                    <Dropdown.Header icon="briefcase" content="Local actions" />
                     <Dropdown.Divider />
                     <Dropdown.Item
                       text="Refresh"
