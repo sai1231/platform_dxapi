@@ -52,7 +52,7 @@ class Dashboard extends Component {
               style={{
                 fontSize: "1.7em",
                 fontWeight: "normal",
-                marginTop: "1.5em"
+                marginTop: "1em"
               }}
             />
             <Header
@@ -61,7 +61,7 @@ class Dashboard extends Component {
               style={{
                 fontSize: "1.7em",
                 fontWeight: "normal",
-                marginTop: "1.2em"
+                marginTop: "0em"
               }}
             />
             <Button className="dxapi" size="huge" onClick={createCase}>

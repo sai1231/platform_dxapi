@@ -100,3 +100,17 @@ table thead p {
   background-color: #75247e;
   color: #fff;
 }
+
+.ui.dropdown .menu > .header {
+  text-transform: none;
+}
+
+.no-bottom-margin {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.no-top-margin {
+  margin-top: 0 !important;
+  padding-top: 10px !important;
+}
